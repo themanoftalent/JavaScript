@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mathematics Page</title>
+</head>
+<body>
+<h1>Mathematics Page</h1>
+
+<p id="result"></p>
+
+<script>
+    // JavaScript code
+    var val;
+
+    // Mathematical Constants
+    val = Math.PI; // The value of Pi
+    document.getElementById("result").innerHTML += "Pi: " + val + "<br>";
+
+    val = Math.E; // Euler's number
+    document.getElementById("result").innerHTML += "Euler's number: " + val + "<br>";
+
+    // Rounding Numbers
+    val = Math.round(2.8); // Rounds to the nearest whole number
+    document.getElementById("result").innerHTML += "Rounded value: " + val + "<br>";
+
+    val = Math.ceil(2.4); // Rounds up to the nearest whole number
+    document.getElementById("result").innerHTML += "Ceiled value: " + val + "<br>";
+
+    val = Math.floor(2.8); // Rounds down to the nearest whole number
+    document.getElementById("result").innerHTML += "Floored value: " + val + "<br>";
+
+    // Square Root and Absolute Value
+    val = Math.sqrt(64); // Square root of a number
+    document.getElementById("result").innerHTML += "Square root of 64: " + val + "<br>";
+
+    val = Math.abs(-3); // Absolute value of a number
+    document.getElementById("result").innerHTML += "Absolute value of -3: " + val + "<br>";
+
+    // Exponents
+    val = Math.pow(8, 2); // 8 raised to the power of 2
+    document.getElementById("result").innerHTML += "8 raised to the power of 2: " + val + "<br>";
+
+    // Minimum and Maximum Values
+    val = Math.min(2, 33, 4, 1, 55, 6, 3, -2); // Find the minimum value
+    document.getElementById("result").innerHTML += "Minimum value: " + val + "<br>";
+
+    val = Math.max(2, 33, 4, 1, 55, 6, 3, -2); // Find the maximum value
+    document.getElementById("result").innerHTML += "Maximum value: " + val + "<br>";
+
+    // Random Numbers
+    val = Math.random(); // Random number between 0 and 1
+    document.getElementById("result").innerHTML += "Random number between 0 and 1: " + val + "<br>";
+
+    val = Math.floor(Math.random() * 20 + 1); // Random whole number between 1 and 20
+    document.getElementById("result").innerHTML += "Random whole number between 1 and 20: " + val + "<br>";
+</script>
+</body>
+</html>

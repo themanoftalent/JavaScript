@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5px;
+            max-width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration-color: aquamarine;
+            font-size: 50px;
+            font-family: "Times New Roman", Times, serif;
+            color: #000000;
+            text-shadow: 2px 2px 4px #000000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(10.0px);
+            -webkit-backdrop-filter: blur(10.0px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .calculator button {
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            background-color: #eee;
+            border: none;
+            cursor: pointer;
+        }
+        .calculator button:hover {
+            background-color: #ddd;
+            backface-visibility: hidden;
+            background-blend-mode: color;
+        }
+        .result {
+            grid-column: 1 / -1;
+            padding: 10px;
+            text-align: right;
+            font-size: 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Calculator</h1>
+<div class="calculator">
+    <div class="result" id="result">0</div>
+    <button onclick="clearDisplay()">C</button>
+    <button onclick="appendValue(7)">7</button>
+    <button onclick="appendValue(8)">8</button>
+    <button onclick="appendValue(9)">9</button>
+    <button onclick="appendValue(4)">4</button>
+    <button onclick="appendValue(5)">5</button>
+    <button onclick="appendValue(6)">6</button>
+    <button onclick="appendValue(1)">1</button>
+    <button onclick="appendValue(2)">2</button>
+    <button onclick="appendValue(3)">3</button>
+    <button onclick="appendValue(0)">0</button>
+    <button onclick="appendOperator('+')">+</button>
+    <button onclick="appendOperator('-')">-</button>
+    <button onclick="appendOperator('*')">*</button>
+    <button onclick="appendOperator('/')">/</button>
+    <button onclick="calculate()">=</button>
+</div>
+<script>
+    let displayValue = '0';
+    let operator = '';
+    let operand1 = '';
+    let operand2 = '';
+    let result = '';
+
+    function updateDisplay() {
+        document.getElementById('result').textContent = displayValue;
+    }
+
+    function appendValue(number) {
+        if (displayValue === '0') {
+            displayValue = number.toString();
+        } else {
+            displayValue += number.toString();
+        }
+        updateDisplay();
+    }
+
+    function appendOperator(op) {
+        if (operator === '') {
+            operator = op;
+            operand1 = displayValue;
+            displayValue = '0';
+        }
+    }
+
+    function calculate() {
+        operand2 = displayValue;
+        let num1 = parseFloat(operand1);
+        let num2 = parseFloat(operand2);
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                result = num1 / num2;
+                break;
+            default:
+                break;
+        }
+
+        displayValue = result.toString();
+        operator = '';
+        operand1 = '';
+        operand2 = '';
+        updateDisplay();
+    }
+
+    function clearDisplay() {
+        displayValue = '0';
+        operator = '';
+        operand1 = '';
+        operand2 = '';
+        result = '';
+        updateDisplay();
+    }
+
+    // Event listeners for keyboard input
+    document.addEventListener('keydown', handleKeyDown);
+
+    function handleKeyDown(event) {
+        const key = event.key;
+
+        if (key >= '0' && key <= '9') {
+            appendValue(parseInt(key));
+        } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+            appendOperator(key);
+        } else if (key === 'Enter' || key === '=') {
+            calculate();
+        } else if (key === 'Escape' || key === 'C') {
+            clearDisplay();
+        }
+    }
+</script>
+</body>
+</html>
