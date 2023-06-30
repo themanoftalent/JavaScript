@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sidebar Example</title>
+  <style>
+    /* Reset some default styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+      background-color: #333;
+      color: #fff;
+      width: 250px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      padding: 10px;
+    }
+
+    .sidebar li a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar li a:hover {
+      background-color: #555;
+    }
+
+    /* Content styles */
+    .content {
+      margin-left: 250px; /* Same width as the sidebar */
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="sidebar">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</div>
+<div class="content">
+  <h1>Welcome to the Sidebar Example</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet ipsum id odio tincidunt eleifend. Donec sed euismod mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur laoreet varius tortor, sit amet ultrices orci dapibus nec.</p>
+</div>
+</body>
+</html>
