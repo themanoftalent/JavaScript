@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review Submission Form</title>
+</head>
+<body>
+<h1>Review Submission Form</h1>
+
+<form id="reviewForm">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+    </div>
+
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+    </div>
+
+    <div>
+        <label for="rating">Rating:</label>
+        <select id="rating" required>
+            <option value="5">5 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="2">2 Stars</option>
+            <option value="1">1 Star</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="review">Review:</label>
+        <textarea id="review" rows="4" required></textarea>
+    </div>
+
+    <button type="submit">Submit Review</button>
+</form>
+
+<script>
+    const reviewForm = document.getElementById('reviewForm');
+
+    reviewForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const rating = document.getElementById('rating').value;
+        const review = document.getElementById('review').value;
+
+        // Perform validation or additional processing if needed
+
+        // Display the review in the console
+        console.log('Name:', name);
+        console.log('Email:', email);
+        console.log('Rating:', rating);
+        console.log('Review:', review);
+
+        // Optionally, you can send the review data to a server using AJAX or fetch
+
+        // Reset the form
+        reviewForm.reset();
+    });
+</script>
+</body>
+</html>
