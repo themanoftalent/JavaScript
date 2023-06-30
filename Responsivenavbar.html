@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Navbar</title>
+  <style>
+    /* Reset some default styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .navbar-brand {
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    .navbar-toggle {
+      display: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin: 0 10px;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar-nav li a:hover {
+      background-color: #555;
+    }
+
+    /* Responsive styles */
+    @media screen and (max-width: 768px) {
+      .navbar-nav {
+        display: none;
+      }
+
+      .navbar-toggle {
+        display: block;
+        font-size: 20px;
+        color: #fff;
+        border: none;
+        background: transparent;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .navbar-menu {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+      }
+
+      .navbar-menu li {
+        margin: 0;
+      }
+
+      .navbar-menu li a {
+        padding: 15px;
+        border-bottom: 1px solid #555;
+      }
+
+      .navbar-menu li:last-child a {
+        border-bottom: none;
+      }
+    }
+
+    @media screen and (max-width: 768px) and (orientation: landscape) {
+      .navbar-menu {
+        top: 70%;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const navbarToggle = document.querySelector(".navbar-toggle");
+      const navbarMenu = document.querySelector(".navbar-menu");
+
+      navbarToggle.addEventListener("click", function() {
+        navbarMenu.classList.toggle("show");
+      });
+    });
+  </script>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-brand">Logo</div>
+  <button class="navbar-toggle">&#9776;</button>
+  <ul class="navbar-nav">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <ul class="navbar-menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+</body>
+</html>

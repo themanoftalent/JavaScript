@@ -1,0 +1,57 @@
+<!--get the color container-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Flipper</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f8f8f8;
+      font-family: Arial, sans-serif;
+    }
+
+    #color {
+      font-size: 30px;
+      text-align: center;
+    }
+
+    #color-container {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+<div id="color-container">
+  <span id="color"></span>
+</div>
+
+<script>
+
+  const colors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#00FFFF', '#FF00FF'  ]; // array of colors
+
+  const colorContainer = document.getElementById('color-container'); // get the color container
+  const colorText = document.getElementById('color'); // get the color text
+
+  function flipColor() { // function to flip the color
+    const randomIndex = Math.floor(Math.random() * colors.length); // get a random index from the array
+    const randomColor = colors[randomIndex]; // get the color from the array using the random index
+    document.body.style.backgroundColor = randomColor; // set the background color of the body
+    colorText.textContent = randomColor; // set the text content of the color text
+  }
+
+  colorContainer.addEventListener('click', flipColor);
+</script>
+</body>
+</html>
