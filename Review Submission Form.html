@@ -37,8 +37,11 @@
     <button type="submit">Submit Review</button>
 </form>
 
+<div id="message" style="display: none;">Thank you for your review!</div>
+
 <script>
     const reviewForm = document.getElementById('reviewForm');
+    const messageElement = document.getElementById('message');
 
     reviewForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
@@ -56,6 +59,9 @@
         console.log('Email:', email);
         console.log('Rating:', rating);
         console.log('Review:', review);
+
+        // Show the "Thank you" message
+        messageElement.style.display = 'block';
 
         // Optionally, you can send the review data to a server using AJAX or fetch
 
